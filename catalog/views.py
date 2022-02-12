@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import render, HttpResponse, redirect
 from catalog import models
 from catalog.models import Book,Author

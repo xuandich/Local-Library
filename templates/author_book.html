@@ -15,18 +15,32 @@ th{text-align: center; font-size: 25px}
                 <th Style="width:20px">ID</th>
                 <th Style="width:200px">Tiêu Đề</th>
                 <th Style="width:200px">Ngày Xuất Bản</th>
-                <th Style="width:300px" class="last">Hành Động</th>
+                <th Style="width:300px" class="last">
+                    <div> {% if user.is_authenticated %}
+                        <a>Hành Động</a>
+                        {% else %}
+                        <a></a>
+                        {% endif %}
+                    </div>
+                </th>
             </tr>
         </thead>
         <tbody>
             {% for book in book_list %}
             <tr>
-                <td>{{ forloop.counter  }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.publish_date }}</td>
                 <td>
-                    <a Style="padding:10px" href="/book/{{ book.pk }}/delete" class="btn btn-danger">Xóa Sách</a>
-                    <a Style="padding:10px" href="/book/{{ book.pk }}/edit" class="btn btn-success">Cập Nhật Sách</a>
+                    <div> {% if user.is_authenticated %}
+                        <a Style="padding:10px" href="/book/{{ book.pk }}/delete" class="btn btn-danger">Xóa Sách</a>
+                        <a Style="padding:10px" href="/book/{{ book.pk }}/edit" class="btn btn-success">Cập Nhật
+                            Sách</a>
+                        {% else %}
+                        <a></a>
+                        {% endif %}
+                    </div>
+
                 </td>
 
             </tr>

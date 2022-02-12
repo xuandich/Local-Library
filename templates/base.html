@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head >
     <meta charset="UTF-8">
-    {% block title %}
-    {% endblock %}
+ 
+        {% block title %}
+        {% endblock %}
 
     <link href="/static/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -14,23 +15,44 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Hệ Thống Quản Lý Thư Viện Cá Nhân</h1>
-    </div>
+    <table Style="background-color: aqua;">
+        <tr>
+            <th style="width: 50%;">
+                <div class="container">
+                    <h1>Hệ Thống Quản Lý Thư Viện Cá Nhân</h1>
+                </div>
+            </th>
+            <th style="width: 50%">
+                <div>
+                    {% if user.is_authenticated %}
+                    Hi {{ user.username }}!
+                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                    {% else %}
+                    <p>Vui Lòng Đăng Nhập</p>
+                    <a href="{% url 'login' %}">Log In</a>
+                    {% endif %}
+                </div>
+            </th>
+        </tr>
+    </table>
 
-    <div class="container">
+
+
+
+    <div class="container" style="background-color: aquamarine;">
         <ul class="nav nav-tabs  " id="myTab">
             <li role="presentation" class="active"><a Style="font-size:30px" href="/index/">Trang Chủ</a></li>
             <li role="presentation"><a Style="font-size:30px" href="/book/">Sách</a></li>
             <li role="presentation"><a Style="font-size:30px" href="/author/">Tác Giả</a></li>
         </ul>
     </div>
-    <br>
+ 
 
-    {% block content %}
+    <div style="background-color:rgb(100, 237, 214);">
+        {% block content %}
 
-    {% endblock %}
-
+        {% endblock %}
+    </div>
 
 
 </body>

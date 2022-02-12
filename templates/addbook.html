@@ -4,11 +4,17 @@
 <title>Thêm Sách</title>
 {% endblock %}
 
+{% block css %}
+.last{color: red}
+a,td{text-align: center; font-size: 20px}
+th{text-align: center; font-size: 25px}
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
     <div class="col-md-4">
-        <h2>Thêm Sách</h2>
+        <h1>Thêm Sách</h2>
         <form action="/addbook/" method="post">
             {% csrf_token %}
             <div class="form-group">
