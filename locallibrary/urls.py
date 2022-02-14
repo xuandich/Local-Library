@@ -28,6 +28,7 @@ urlpatterns = [
     path('addbook/', views.addbook),
     re_path(r"^book/(\d+)/delete", views.delbook),
     re_path(r"^book/(\d+)/edit", views.editbook),
+    re_path(r"^book/(\d+)/bookdetail", views.bookdetail),
 
     re_path(r'^author/', views.author),
     re_path(r'^addauthor', views.addauthor),
@@ -36,9 +37,8 @@ urlpatterns = [
     re_path(r'^author_book/(\d+)', views.author_book),
 ]
 
-from django.views.generic.base import TemplateView
 urlpatterns += [
     path('', RedirectView.as_view(url='/index/', permanent=True)),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('search/', views.search, name='search'),
 ]
 

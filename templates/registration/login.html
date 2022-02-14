@@ -7,10 +7,13 @@
 </head>
 
 <body>
-  <h2>Log In</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-  </form>
+  <div style="padding-left: 40%; padding-top: 10%;">
+    <h2>Log In</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Log In</button>
+    </form>
+  </div>
 </body>

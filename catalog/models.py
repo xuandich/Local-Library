@@ -13,3 +13,4 @@ class Book(models.Model):
     title = models.CharField(max_length=32)
     publish_date = models.DateField()
     authors = models.ManyToManyField("Author")
+    summary = models.CharField(max_length=500, blank=True)

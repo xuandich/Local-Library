@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head >
+<head>
     <meta charset="UTF-8">
- 
-        {% block title %}
-        {% endblock %}
+
+    {% block title %}
+    {% endblock %}
 
     <link href="/static/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -15,14 +15,14 @@
 </head>
 
 <body>
-    <table Style="background-color: aqua;">
+    <table Style="background-color: aqua; width: 100%">
         <tr>
-            <th style="width: 50%;">
+            <th style="width: 80%">
                 <div class="container">
                     <h1>Hệ Thống Quản Lý Thư Viện Cá Nhân</h1>
                 </div>
             </th>
-            <th style="width: 50%">
+            <th >
                 <div>
                     {% if user.is_authenticated %}
                     Hi {{ user.username }}!
@@ -40,19 +40,39 @@
 
 
     <div class="container" style="background-color: aquamarine;">
-        <ul class="nav nav-tabs  " id="myTab">
-            <li role="presentation" class="active"><a Style="font-size:30px" href="/index/">Trang Chủ</a></li>
-            <li role="presentation"><a Style="font-size:30px" href="/book/">Sách</a></li>
-            <li role="presentation"><a Style="font-size:30px" href="/author/">Tác Giả</a></li>
-        </ul>
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 80%; text-align: left">
+                    <ul class="nav nav-tabs  " id="myTab">
+                        <li role="presentation" class="active"><a Style="font-size:30px" href="/index/">Trang Chủ</a>
+                        </li>
+                        <li role="presentation"><a Style="font-size:30px" href="/book/">Sách</a></li>
+                        <li role="presentation"><a Style="font-size:30px" href="/author/">Tác Giả</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <form action="{% url 'search' %}" class="form-inline" method="get">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input name="search" type="" class="form-control" id="" placeholder="Keyword">
+                            <button type="submit" class="btn btn-success btn-lg mb-2">Search</button>
+                        </div>
+                        
+                    </form>
+                </td>
+            </tr>
+        </table>
+
     </div>
- 
+
 
     <div style="background-color:rgb(100, 237, 214);">
         {% block content %}
 
         {% endblock %}
     </div>
+    <!-- Boostrap JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
 </body>
