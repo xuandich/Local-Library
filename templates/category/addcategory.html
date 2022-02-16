@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Thêm Tác Giả</title>
+<title>Thêm Thể Loại</title>
 {% endblock %}
 
 {% block css %}
@@ -12,17 +12,17 @@ th{text-align: center; font-size: 25px}
 
 {% block content %}
 
-<div class="container" style="padding-bottom: 5px;">
+<div class="container" style="padding-bottom: 10px;">
     <div class="col-md-4">
-        <h1>Thêm Tác Giả</h2>
-        <form action="/addauthor/" method="post">
+        <h1>Thêm Thể Loại</h1>
+        <form action="/addcategory/" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <table>
                     <tr>
-                        <th Style="width:150px"><label for="author">Tên Tác Giả</label></th>
+                        <th Style="width:150px"><label for="category">Tên Thể Loại</label></th>
                         <th><input type="text" class="form-control" id="author" name="name"
-                                placeholder="Nhập Tên Tác Giả" value="{{ name }}" style="margin-bottom: 5px;">
+                                placeholder="Nhập Tên Thể Loại" value="{{ name }}" style="margin-bottom: 5px;">
                         </th>
                         <th><span class="label label-danger">{{ status }}</span></th>
                     </tr>

@@ -32,9 +32,15 @@ urlpatterns = [
 
     re_path(r'^author/', views.author),
     re_path(r'^addauthor', views.addauthor),
-    re_path(r'^editauthor/(\d+)', views.delauthor),
+    re_path(r'^editauthor/(\d+)', views.editauthor),
     re_path(r'^delauthor/(\d+)', views.delauthor),
     re_path(r'^author_book/(\d+)', views.author_book),
+
+    re_path(r'^category/', views.category),
+    re_path(r'^addcategory', views.addcategory),
+    re_path(r'^editcategory/(\d+)', views.editcategory),
+    re_path(r'^delcategory/(\d+)', views.delcategory),
+    re_path(r'^category_book/(\d+)', views.category_book),
 ]
 
 urlpatterns += [

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block css %}
+.last{color: red}
+a,td{text-align: center; font-size: 20px}
+th{text-align: center; font-size: 25px}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-4">
+        <h1>Cập Nhật Thông Tin Tác Giả</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th
+                            Style="width:250px; padding-left: 20px; padding-bottom: 15px; padding-bottom: 15px;text-align: left;; padding-left: 20px ;text-align: left;">
+                            <label for="author">Tên Tác Giả</label>
+                        </th>
+                        <th>
+                            <input type="text" class="form-control" style="margin-bottom: 5px;" id="author" name="name"
+                                value="{{ author_obj.name }}">
+                        </th>
+                    </tr>
+                </table>
+                <span class="label label-danger">{{ status }}</span>
+            </div>
+            <div class="form-group" style="padding-left: 50px; padding-bottom: 10px;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

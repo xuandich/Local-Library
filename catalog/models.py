@@ -14,3 +14,8 @@ class Book(models.Model):
     publish_date = models.DateField()
     authors = models.ManyToManyField("Author")
     summary = models.CharField(max_length=500, blank=True)
+    categorys = models.ManyToManyField("Category")
+
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=32)

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block css %}
+.last{color: red}
+a,td{text-align: center; font-size: 20px}
+th{text-align: center; font-size: 25px}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-4">
+        <h1>Cập Nhật Thông Tin Sách</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <table Style=" padding-left: 20px; padding-bottom: 15px; text-align: left; padding-left: 20px ;">
+
+                    <tr>
+                        <th style="width:250px; text-align: left;">
+                            <label for="book">Tên Sách</label>
+                        </th>
+                        <th>
+                            <input style="width: 200px;" type="text" class="form-control" id="book" name="title" value="{{ book_obj.title }}">
+                        </th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <table Style=" padding-left: 20px; padding-bottom: 15px; text-align: left; padding-left: 20px ;">
+                    <tr>
+                        <th style="width:250px; text-align: left;">
+                            <label for="pub_date">Ngày Xuất Bản</label>
+                        </th>
+                        <th>
+                            <input style="width: 205px;" type="date" class="form-control" id="pub-date" name="pub_date"
+                                value="{{ book_obj.publish_date|date:'Y-m-d'}}">
+                        </th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <table Style=" padding-left: 20px; padding-bottom: 15px; text-align: left; padding-left: 20px ;">
+                    <tr>
+                        <th style="width:250px; text-align: left;">
+                            <b style="margin-bottom: 5px;display: inline-block">Chọn Tác Giả</b>
+                        </th>
+                        <th >
+                            <select style="width: 210px;" class="form-control" multiple name="authors_id_list">
+                                {% for author in author_list %}
+                                {% if author in book_obj.authors.all %}
+                                <option value="{{ author.pk }}" selected>{{ author.name }}</option>
+                                {% else %}
+                                <option value="{{ author.pk }}">{{ author.name }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </th>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="form-group" style="padding-left: 50px; padding-bottom: 10px;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

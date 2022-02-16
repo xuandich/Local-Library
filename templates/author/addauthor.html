@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Thêm Tác Giả</title>
+{% endblock %}
+
+{% block css %}
+.last{color: red}
+a,td{text-align: center; font-size: 20px}
+th{text-align: center; font-size: 25px}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-bottom: 10px;">
+    <div class="col-md-4">
+        <h1>Thêm Tác Giả</h1>
+        <form action="/addauthor/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th Style="width:150px"><label for="author">Tên Tác Giả</label></th>
+                        <th><input type="text" class="form-control" id="author" name="name"
+                                placeholder="Nhập Tên Tác Giả" value="{{ name }}" style="margin-bottom: 5px;">
+                        </th>
+                        <th><span class="label label-danger">{{ status }}</span></th>
+                    </tr>
+                </table>
+            </div>
+            <div Style="margin-left: 50px;" class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

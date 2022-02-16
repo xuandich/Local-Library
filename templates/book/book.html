@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}
 <title>Trang Tác Phẩm</title>
 {% endblock %}
@@ -10,7 +11,8 @@ th{text-align: center; font-size: 25px}
 {% endblock %}
 
 {% block content %}
-<div class="container" style="padding-bottom: 5px;">
+
+<div class="container">
     <div> {% if user.is_authenticated %}
         <a href="/addbook/" class="btn btn-info glyphicon glyphicon-plus">Thêm Sách</a>
         {% else %}
@@ -19,13 +21,14 @@ th{text-align: center; font-size: 25px}
     </div>
     
 </div>
-<div class="container">
+<div class="container" >
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
                 <th Style="width:20px">ID</th>
                 <th Style="width:200px">Tiêu Đề</th>
                 <th Style="width:200px">Ngày Xuất Bản</th>
+                <th Style="width:200px">Thể Loại</th>
                 <th Style="width:150px">Tác Giả</th>
                 <th Style="width:300px" class="last">
                     <div> {% if user.is_authenticated %}
@@ -46,6 +49,15 @@ th{text-align: center; font-size: 25px}
                 <td hidden>{{ book.id}}</td>
                 <td> <a href="/book/{{ book.pk }}/bookdetail"> {{ book.title }} </a></td>
                 <td>{{ book.publish_date|date:'Y-m-d' }}</td>
+                <td>
+                    {% for author in book.authors.all %}
+                    {% if forloop.last %}
+                    <a href="/category_book/{{ category.pk }}">{{ category.name }}</a>
+                    {% else %}
+                    <a href="/category_book/{{ category.pk }}">{{ category.name }}</a>
+                    {% endif %}
+                    {% endfor %}
+                </td>
                 <td>
                     {% for author in book.authors.all %}
                     {% if forloop.last %}

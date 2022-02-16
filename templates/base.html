@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <table Style="background-color: aqua; width: 100%">
+    <table Style="background-color: aqua; width: 100%;">
         <tr>
             <th style="width: 80%">
                 <div class="container">
@@ -25,47 +25,44 @@
             <th >
                 <div>
                     {% if user.is_authenticated %}
-                    Hi {{ user.username }}!
-                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                    Xin Chào {{ user.username }}!
+                    <p><a href="{% url 'logout' %}">Đăng Xuất</a></p>
                     {% else %}
                     <p>Vui Lòng Đăng Nhập</p>
-                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'login' %}">Đăng Nhập</a>
                     {% endif %}
                 </div>
             </th>
         </tr>
     </table>
 
+    <br>
 
+    <table style="width: 100%; background-color: aquamarine;">
+        <tr>
+            <td style="width: 80%; text-align: left">
+                <ul class="nav nav-tabs  " id="myTab">
+                    <li role="presentation" class="active"><a Style="font-size:30px" href="/index/">Trang Chủ</a>
+                    </li>
+                    <li role="presentation"><a Style="font-size:30px" href="/book/">Sách</a></li>
+                    <li role="presentation"><a Style="font-size:30px" href="/author/">Tác Giả</a></li>
+                    <li role="presentation"><a Style="font-size:30px" href="/category/">Thể Loại</a></li>
+                </ul>
+            </td>
+            <td>
+                <form action="{% url 'search' %}" class="form-inline" method="get">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input name="search" type="" class="form-control" id="" placeholder="Nhâp Nội Dung">
+                        <button type="submit" class="btn btn-success btn-lg mb-2">Tìm Kiếm</button>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
 
-
-    <div class="container" style="background-color: aquamarine;">
-        <table style="width: 100%;">
-            <tr>
-                <td style="width: 80%; text-align: left">
-                    <ul class="nav nav-tabs  " id="myTab">
-                        <li role="presentation" class="active"><a Style="font-size:30px" href="/index/">Trang Chủ</a>
-                        </li>
-                        <li role="presentation"><a Style="font-size:30px" href="/book/">Sách</a></li>
-                        <li role="presentation"><a Style="font-size:30px" href="/author/">Tác Giả</a></li>
-                    </ul>
-                </td>
-                <td>
-                    <form action="{% url 'search' %}" class="form-inline" method="get">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input name="search" type="" class="form-control" id="" placeholder="Keyword">
-                            <button type="submit" class="btn btn-success btn-lg mb-2">Search</button>
-                        </div>
-                        
-                    </form>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-
-
-    <div style="background-color:rgb(100, 237, 214);">
+    <div style="background-color:rgb(100, 237, 214); padding-bottom: 10px;">
         {% block content %}
 
         {% endblock %}
