@@ -21,7 +21,8 @@ th{text-align: center; font-size: 25px}
                             <label for="book">Tên Sách</label>
                         </th>
                         <th>
-                            <input style="width: 200px;" type="text" class="form-control" id="book" name="title" value="{{ book_obj.title }}">
+                            <input style="width: 200px;" type="text" class="form-control" id="book" name="title"
+                                value="{{ book_obj.title }}">
                         </th>
                     </tr>
                 </table>
@@ -35,7 +36,7 @@ th{text-align: center; font-size: 25px}
                         </th>
                         <th>
                             <input style="width: 205px;" type="date" class="form-control" id="pub-date" name="pub_date"
-                                value="{{ book_obj.publish_date|date:'Y-m-d'}}">
+                                value="{{book_obj.publish_date | date:'c'}}">
                         </th>
                     </tr>
                 </table>
@@ -47,7 +48,7 @@ th{text-align: center; font-size: 25px}
                         <th style="width:250px; text-align: left;">
                             <b style="margin-bottom: 5px;display: inline-block">Chọn Tác Giả</b>
                         </th>
-                        <th >
+                        <th>
                             <select style="width: 210px;" class="form-control" multiple name="authors_id_list">
                                 {% for author in author_list %}
                                 {% if author in book_obj.authors.all %}
@@ -66,6 +67,7 @@ th{text-align: center; font-size: 25px}
             <div class="form-group" style="padding-left: 50px; padding-bottom: 10px;">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+
 
         </form>
     </div>

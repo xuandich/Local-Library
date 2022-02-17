@@ -1,5 +1,9 @@
 {% extends "base.html" %} 
 
+{% block title %}
+<title>Tác giả: {{ author.name }}</title>
+{% endblock %}
+
 {% block css %}
 .last{color: red}
 a,td{text-align: center; font-size: 20px}

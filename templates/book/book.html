@@ -48,7 +48,7 @@ th{text-align: center; font-size: 25px}
                 <td>{{ forloop.counter }}</td>
                 <td hidden>{{ book.id}}</td>
                 <td> <a href="/book/{{ book.pk }}/bookdetail"> {{ book.title }} </a></td>
-                <td>{{ book.publish_date|date:'Y-m-d' }}</td>
+                <td>{{ book.publish_date|date:'c' }}</td>
                 <td>
                     {% for author in book.authors.all %}
                     {% if forloop.last %}

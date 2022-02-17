@@ -4,11 +4,15 @@ from django.db import models
 
 
 class Author(models.Model):
+    """ Model Tác Giả
+    """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=32)
 
 
 class Book(models.Model):
+    """ Model Tác Phẩm
+    """
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=32)
     publish_date = models.DateField()
@@ -17,5 +21,7 @@ class Book(models.Model):
     categorys = models.ManyToManyField("Category")
 
 class Category(models.Model):
+    """ Model Thể Loại
+    """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=32)

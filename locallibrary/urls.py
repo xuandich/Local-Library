@@ -26,21 +26,21 @@ urlpatterns = [
 
     path('book/', views.book),
     path('addbook/', views.addbook),
-    re_path(r"^book/(\d+)/delete", views.delbook),
-    re_path(r"^book/(\d+)/edit", views.editbook),
-    re_path(r"^book/(\d+)/bookdetail", views.bookdetail),
+    path('book/<id>/delete', views.delbook),
+    path('book/<id>/edit', views.editbook),
+    path('book/<id>/bookdetail', views.bookdetail),
 
-    re_path(r'^author/', views.author),
-    re_path(r'^addauthor', views.addauthor),
-    re_path(r'^editauthor/(\d+)', views.editauthor),
-    re_path(r'^delauthor/(\d+)', views.delauthor),
-    re_path(r'^author_book/(\d+)', views.author_book),
+    path('author/', views.author),
+    path('addauthor/', views.addauthor),
+    path('editauthor/<id>', views.editauthor),
+    path('delauthor/<id>', views.delauthor),
+    path('author_book/<id>', views.author_book),
 
-    re_path(r'^category/', views.category),
-    re_path(r'^addcategory', views.addcategory),
-    re_path(r'^editcategory/(\d+)', views.editcategory),
-    re_path(r'^delcategory/(\d+)', views.delcategory),
-    re_path(r'^category_book/(\d+)', views.category_book),
+    path('category/', views.category),
+    path('addcategory', views.addcategory),
+    path('editcategory/<id>', views.editcategory),
+    path('delcategory/<id>', views.delcategory),
+    path('category_book/<id>', views.category_book),
 ]
 
 urlpatterns += [

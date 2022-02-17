@@ -26,6 +26,7 @@ th{text-align: center; font-size: 25px}
         <tr>
           <th Style="width:200px">Tiêu Đề</th>
           <th Style="width:150px">Tác Giả</th>
+          <th Style="width:150px">Thể Loại</th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +40,15 @@ th{text-align: center; font-size: 25px}
             <a href="/author_book/{{ author.pk }}">{{ author.name }}</a>
             {% else %}
             <a href="/author_book/{{ author.pk }}">{{ author.name }}</a>
+            {% endif %}
+            {% endfor %}
+          </td>
+          <td>
+            {% for category in book.categorys.all %}
+            {% if forloop.last %}
+            <a href="/category_book/{{ category.pk }}">{{ category.name }}</a>
+            {% else %}
+            <a href="/category_book/{{ category.pk }}">{{ category.name }}</a>
             {% endif %}
             {% endfor %}
           </td>
